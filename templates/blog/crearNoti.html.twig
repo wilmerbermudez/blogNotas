@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Noticias Presidenciales {% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <h1>Crear nueva entrada del Blog</h1>
+    </div>
+    <form action="{{path('guardar_noticia')}}" enctype="multipart/form-data" method="POST">
+        <label>Titulo:</label>
+        <input type="text" id="name" name="titulo" placeholder="Nombre" pattern="([A-Za-z]{3,20})\w+"><br><br>
+        <label>Imagen:</label>
+        <input type="file"><br><br>
+        <label>Noticia:</label>
+        <input type="text" id="mensaje" name="noticia" placeholder="Deja tu mensaje" style="width:200px;height:150px"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    
+{%  endblock %}
