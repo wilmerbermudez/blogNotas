@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Entrada;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +15,14 @@ class BlogController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render ('blog/index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $conexion = $em->getConnection();
+
+        $noticias = $em->getRepository(Entrada::class)->findAll();
+        return $this->render ('blog/index.html.twig', [
+            'noticias' => $noticias
+        ]);
     }
 
     /**
@@ -30,7 +38,31 @@ class BlogController extends AbstractController
      */
     public function guardarNoticia(Request $request): Response
     {
-        //dd($request);
-        return $this->render ('blog/crearNoti.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $conexion = $em->getConnection();
+        $formato =$request->request->all();
+        $archivo = $_FILES['imagen']['name'];
+        $temp = $_FILES['imagen']['tmp_name'];
+        move_uploaded_file($temp, 'images/'.$archivo);
+        $entrada = new Entrada;
+        $entrada->setTitulo($formato['titulo']);
+        $entrada->setAutor('WILMER');
+        $entrada->setImagen($archivo);
+        $entrada->setDescripcion($formato['noticia']);
+        $entrada->setFechaCreacion(new \DateTime());
+        $em->persist($entrada);
+        $flush = $em->flush();
+
+        return $this->redirectToRoute('app_blog');
+    }
+
+    /**
+     * @Route("/blog/update/{id}", name="update_noticia")
+     */
+    public function updateNoticia(Request $request): Response
+    {
+        
+
+        return $this->render('blog/index.html.twig');
     }
 }

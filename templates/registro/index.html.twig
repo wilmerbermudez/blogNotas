@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registro Usuario{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <h1>Registro de Usuario</h1>
+    </div>
+    {% for flash_message in app.session.flashbag('exito') %}
+        <div class="flash-notice">
+            {{ flash_message }}
+        </div>
+    {% endfor %}
+
+    {{ form(formulario) }}
+
+{% endblock %}

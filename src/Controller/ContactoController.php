@@ -38,8 +38,6 @@ class ContactoController extends AbstractController
         //dd($mensaje);
         $flush = $em->flush();
 
-        return $this->render('contacto/index.html.twig', [
-            'controller_name' => 'ContactoController',
-        ]);
+        return $this->render('contacto/index.html.twig');
     }
 }
