@@ -1,7 +1,21 @@
 img{
-    margin-left: 250px;
+    margin-left: 50px;
 }
 
 div{
     text-align: center;
+}
+
+h2{
+    text-align: center;
+    margin-left: 50px;
+}
+
+h4{
+    text-align: center;
+    margin-left: 50px;
+}
+
+#imghome{
+    margin-left: 250px;
 }

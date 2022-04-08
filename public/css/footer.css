@@ -9,6 +9,14 @@ footer{
     color: #fff;
 }
 
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    margin: 0;
+}
 .footer-content{
     display: flex;
     align-items: center;

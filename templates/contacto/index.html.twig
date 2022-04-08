@@ -6,6 +6,7 @@
     <div class="example-wrapper">
         <h1>Contacto</h1>
     </div>
+    <div class="form-control">
        <form action="{{path('mensaje_contacto')}}" enctype="multipart/form-data" method="POST">
             <label>Nombre:</label>
             <input type="text" id="name" name="nombre" placeholder="Nombre" pattern="([A-Za-z]{3,20})\w+"><br><br>
@@ -13,7 +14,7 @@
             <input type="email" placeholder="Correo" id="mail" name="correo"><br><br>
             <label>Mensaje:</label>
             <input type="text" id="mensaje" name="mensaje" placeholder="Deja tu mensaje" style="width:200px;height:150px"><br><br>
-            <input type="submit" value="Submit">
+            <input type="submit" class="btn-primary" value="Submit">
         </form>
-
+    </div>
 {%  endblock %}

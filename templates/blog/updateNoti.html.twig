@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Noticias Presidenciales {% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <h1>Actualizar entrada</h1>
+    </div>
+    <form action="{{path('actualizar_noticia', { 'id': noticia.id })}}" enctype="multipart/form-data" method="POST">
+        <label>Titulo:</label>
+        <input type="text" id="name" name="titulo" value="{{ noticia.titulo }}" pattern="([A-Za-z ]{3,50})\w+"><br><br>
+        {# <label>Imagen:</label>
+        <input type="file" name="imagen" value="{{ noticia.imagen }}"><br><br> #}
+        <label>Noticia:</label>
+        <input type="text" id="mensaje" name="noticia" value="{{ noticia.descripcion }}" style="width:200px;height:150px"><br><br>
+        <input type="submit" value="Update">
+    </form>
+
+    
+{%  endblock %}

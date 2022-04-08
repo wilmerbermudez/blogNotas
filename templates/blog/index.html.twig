@@ -12,15 +12,16 @@
     </button></br></br>
     <div>
         <li>{% for noticia in noticias %}
-            <ul><a href="#">{{ noticia.titulo }}</a></ul>
+            <ul><h3>{{ noticia.titulo }}</h3></ul>
         {% endfor %}</li>
         <li>{% for noticia in noticias %}
-            <ul>{{ noticia.titulo }}</ul>
+            <ul><h2>{{ noticia.titulo }}</h2></ul>
             <ul><img src="{{ asset('images/') }}{{ noticia.imagen }}" width="400" height="200"></ul>
             <ul>{{ noticia.autor }} / {{ noticia.fechaCreacion|date("m/d/Y") }}</ul>
-            <ul>{{ noticia.descripcion }}</ul>
-            <a href="#">ver</a>
-            <a href="#">editar</a>
+            <ul><h4>{{ noticia.descripcion }}<h4></ul>
+            <a href="{{ path('ver_noticia',  { 'id': noticia.id })}}">ver</a>
+            <a href="{{ path('update_noticia', { 'id': noticia.id })}}">editar</a>
+            </br></br>
         {% endfor %}</li>
     </div>
 

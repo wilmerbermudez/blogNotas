@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Noticias Presidenciales {% endblock %}
+
+{% block body %}
+
+    <div>
+            <ul><h2>{{ noticia.titulo }}</h2></ul>
+            <ul><img src="{{ asset('images/') }}{{ noticia.imagen }}" width="400" height="200"></ul>
+            <ul>{{ noticia.autor }} / {{ noticia.fechaCreacion|date("m/d/Y") }}</ul>
+            <ul><h4>{{ noticia.descripcion }}<h4></ul>
+        
+    </div>
+
+{%  endblock %}
