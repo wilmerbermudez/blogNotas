@@ -23,7 +23,7 @@ class RegistroController extends AbstractController
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $em = $this->getDoctrine()->getManager();
-            //$user->setClave($passwordEncoder->encodePassword($user,$form['clave']->getData()));
+            $user->setClave(base64_encode($form['clave']->getData()));
             $em->persist($user);
             $em->flush();
             $this->addFlash(
@@ -34,5 +34,26 @@ class RegistroController extends AbstractController
         return $this->render('registro/index.html.twig', [
             'formulario' => $form->createView(),
         ]);
+    }
+    /**
+     * @Route("/signIn", name="login2")
+     */
+    public function signIn(Request $request){
+        $formato =$request->request->all();
+        // dd($formato['email']);
+        $em = $this->getDoctrine()->getManager();
+        $conexion = $em->getConnection();
+        $noticias = $em->getRepository(Usuarios::class)->findBy(['email' => $formato['email']]);
+        if($noticias){
+            $passwordDecode = base64_decode($noticias[0]->getClave());
+            if($passwordDecode == $formato['clave']){
+                dd("exito");
+            }
+            else{
+                dd("no exito");
+            }
+        } else {
+            dd("No existe correo");
+        }
     }
 }
