@@ -6,6 +6,7 @@
 
     <div>
             <ul><h2>{{ noticia.titulo }}</h2></ul>
+            <ul><h4>{{ noticia.subtitulo }}</h4></ul>
             <ul><img src="{{ asset('images/') }}{{ noticia.imagen }}" width="400" height="200"></ul>
             <ul>{{ noticia.autor }} / {{ noticia.fechaCreacion|date("m/d/Y") }}</ul>
             <ul><h4>{{ noticia.descripcion }}<h4></ul>

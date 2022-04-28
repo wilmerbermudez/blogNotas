@@ -46,6 +46,7 @@ class BlogController extends AbstractController
         move_uploaded_file($temp, 'images/'.$archivo);
         $entrada = new Entrada;
         $entrada->setTitulo($formato['titulo']);
+        $entrada->setSubtitulo($formato['subtitulo']);
         $entrada->setAutor('WILMER');
         $entrada->setImagen($archivo);
         $entrada->setDescripcion($formato['noticia']);
@@ -83,6 +84,7 @@ class BlogController extends AbstractController
         $temp = $_FILES['imagen']['tmp_name'];
         move_uploaded_file($temp, 'images/'.$archivo); */
         $noticias->setTitulo($formato['titulo']);
+        $noticias->setSubtitulo($formato['subtitulo']);
         $noticias->setAutor('WILMER');
         //$noticias->setImagen($archivo);
         $noticias->setDescripcion($formato['noticia']);

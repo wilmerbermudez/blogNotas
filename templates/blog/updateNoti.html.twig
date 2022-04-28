@@ -9,6 +9,9 @@
     <form action="{{path('actualizar_noticia', { 'id': noticia.id })}}" enctype="multipart/form-data" method="POST">
         <label>Titulo:</label>
         <input type="text" id="name" name="titulo" value="{{ noticia.titulo }}" pattern="([A-Za-z ]{3,50})\w+"><br><br>
+        <label>Subtitulo:</label>
+        <input type="text" id="name" name="subtitulo" value="{{ noticia.subtitulo }}"><br><br>
+        
         {# <label>Imagen:</label>
         <input type="file" name="imagen" value="{{ noticia.imagen }}"><br><br> #}
         <label>Noticia:</label>

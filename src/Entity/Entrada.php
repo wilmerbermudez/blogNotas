@@ -42,6 +42,11 @@ class Entrada
      */
     private $fechaCreacion;
 
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $subtitulo;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +108,18 @@ class Entrada
     public function setFechaCreacion(\DateTimeInterface $fechaCreacion): self
     {
         $this->fechaCreacion = $fechaCreacion;
+
+        return $this;
+    }
+
+    public function getSubtitulo(): ?string
+    {
+        return $this->subtitulo;
+    }
+
+    public function setSubtitulo(?string $subtitulo): self
+    {
+        $this->subtitulo = $subtitulo;
 
         return $this;
     }
